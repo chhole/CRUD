@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        .reg{
+            background: pink;
+            border: 2px solid black;
+            padding: 120px;
+            width: 400px;
+            height: 200px;
+            margin-left: 350px;
+            margin-top: 100px;
+        }
+        #login{
+
+            width: 340px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function func() {
+
+            const params = new Proxy(new URLSearchParams(window.location.search), {
+                        get: (searchParams, prop) => searchParams.get(prop),
+        });
+           var value = params.mail;
+                $("#mail").val(value);
+        }
+    </script>
+</head>
+<body onload="func()">
+<form class="reg" method="post" action="login.php">
+    <label>E-mail : </label>
+    <input type="text" name="mail" id="mail" size="30"><br><br>
+    <label>Password : </label>
+    <input type="password" name="password" id="password" size="30"><br><br>
+    <button type="submit" id="login">Login</button>
+</form>
+</body>
+</html>
